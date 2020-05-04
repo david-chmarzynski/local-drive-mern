@@ -4,7 +4,7 @@ import { Icon } from 'semantic-ui-react';
 // == Components Import
 import Login from 'src/containers/Login';
 import SearchBar from 'src/components/V2/SearchBar';
-import Account from 'src/components/V2/Layout/Header/HeaderDesk/Account';
+import Account from 'src/containers/Account';
 
 import './headerdesk.scss';
 

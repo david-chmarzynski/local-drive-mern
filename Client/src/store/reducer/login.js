@@ -13,6 +13,7 @@ const initialState = {
   const STORE_PASSWORD = "STORE_PASSWORD";
   const IS_LOGGED = "IS_LOGGED";
   const FECTH_USER_DATA = "FECTH_USER_DATA";
+  const EMPTY_USER = "EMPTY_USER";
   export const SUBMIT_LOGIN = "SUBMIT_LOGIN";
   
   // --- Reducer
@@ -32,6 +33,11 @@ const initialState = {
             return {
               ...state,
               isLogged: action.isLogged,
+            };
+        case EMPTY_USER:
+            return {
+                ...state,
+                currentUser: null
             };
         case FECTH_USER_DATA:
             return {
@@ -66,7 +72,11 @@ const initialState = {
   export const fetchUserData = (local) => ({
     type: FECTH_USER_DATA,
     local,
-});
+  });
+
+  export const emptyUser = () => ({
+      type: EMPTY_USER
+  });
   
   // --- export
   export default reducer;

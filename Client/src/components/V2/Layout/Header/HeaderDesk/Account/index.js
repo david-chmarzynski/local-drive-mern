@@ -6,8 +6,14 @@ import './account.scss';
 const Account = ({
     show,
     handleClose,
-    currentUser
+    currentUser,
+    handleLogout
 }) => {
+    const handleCompLogout = (event) => {
+        event.preventDefault();
+        handleClose();
+        handleLogout();
+    }
     return (
         <div id="account">
             <Modal show={show} onHide={handleClose}>
@@ -29,7 +35,7 @@ const Account = ({
                 </Card>
                 </Modal.Body>
                 <Modal.Footer className="account">
-                <Button variant="danger" onClick={handleClose} >
+                <Button variant="danger" onClick={handleCompLogout}>
                     Se déconnecter
                 </Button>
                 </Modal.Footer>

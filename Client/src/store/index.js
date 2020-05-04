@@ -7,6 +7,7 @@ import {
 // == Import : MiddleWares
 import registerMiddleware from 'src/store/middlewares/registerMiddleware';
 import loginMiddleware from 'src/store/middlewares/loginMiddleware';
+import logoutMiddleware from 'src/store/middlewares/logoutMiddleware';
 
 import reducer from 'src/store/reducer';
 
@@ -14,6 +15,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const enhancers = composeEnhancers(
   applyMiddleware(
+    logoutMiddleware,
     loginMiddleware,
     registerMiddleware,
   ),

@@ -32,3 +32,10 @@ exports.signin = async (req, res, next) => {
         }
     })(req, res, next);
 }
+
+exports.logout = async (req, res, next) => {
+    req.logout();
+    res.json({
+        isAuthenticated: req.isAuthenticated()
+    })
+}

@@ -4,7 +4,7 @@
 const initialState = {
     email: null,
     password: null,
-    isLogged: false,
+    isLogged: null,
     currentUser: null,
   };
   
@@ -37,7 +37,9 @@ const initialState = {
         case EMPTY_USER:
             return {
                 ...state,
-                currentUser: null
+                currentUser: null,
+                email: null,
+                password: null,
             };
         case FECTH_USER_DATA:
             return {

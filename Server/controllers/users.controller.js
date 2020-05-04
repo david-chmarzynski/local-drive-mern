@@ -1,15 +1,23 @@
-const { createUser } = require('../queries/users.queries');
+const { createUser, findUserByMail } = require('../queries/users.queries');
 const passport = require('passport');
 
 exports.register = async (req, res, next) => {
     const body = req.body;
     try {
-        const user = await createUser(body);
-        res.json({
-            message: "Utilisateur créé"
-        });
+        const createdUser = await findUserByMail(req.body.email);
+        if (createdUser) {
+            return res.status(400).json({
+                message: "Un utilisateur utilise déjà cet email",
+                user: createdUser
+            });
+        } else {
+            const user = await createUser(body);
+            res.json({
+                message: "Utilisateur créé"
+            });
+        }
     } catch (e) {
-        res.json({ errors: [e.message]})
+        res.json({ errors: [e.message] })
     }
 }
 
@@ -18,7 +26,7 @@ exports.signin = async (req, res, next) => {
         if (err) {
             next(err);
         } else if (!user) {
-            res.json({
+            return res.status(400).json({
                 errors: [info.message], isAuthenticated: req.isAuthenticated(), currentUser: req.user
             });
         } else {

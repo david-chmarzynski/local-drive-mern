@@ -13,6 +13,7 @@ const initialState = {
   const STORE_PASSWORD = "STORE_PASSWORD";
   const STORE_CPASSWORD = "STORE_CPASSWORD";
   const STORE_IS_SHOP = "STORE_IS_SHOP";
+  const EMPTY_USER = "EMPTY_USER";
   export const SUBMIT_NEW_USER = "SUBMIT_NEW_USER";
   
   // --- Reducer
@@ -37,6 +38,13 @@ const initialState = {
         return {
           ...state,
           isShop: !state.isShop,
+        };
+      case EMPTY_USER:
+        return {
+          ...state,
+          email: null,
+          password: null,
+          cpassword: null
         };
   
       default:
@@ -66,6 +74,10 @@ const initialState = {
 
   export const storeSubmitNewUser = () => ({
     type: SUBMIT_NEW_USER,
+  });
+
+  export const emptyUserRegister = () => ({
+    type: EMPTY_USER
   });
   
   // --- export

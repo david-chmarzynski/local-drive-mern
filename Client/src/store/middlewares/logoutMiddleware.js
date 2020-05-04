@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { STORE_LOGOUT } from 'src/store/reducer/account';
 import { isLogged, emptyUser } from 'src/store/reducer/login';
+import { emptyUserRegister } from 'src/store/reducer/register';
 
 
 
@@ -23,6 +24,7 @@ const logoutMiddleware = (store) => (next) => (action) => {
           store.dispatch(isLogged(response.data.isAuthenticated));
           if (response.data.isAuthenticated === false) {
               store.dispatch(emptyUser());
+              store.dispatch(emptyUserRegister());
           }
         })
         .catch((error) => {

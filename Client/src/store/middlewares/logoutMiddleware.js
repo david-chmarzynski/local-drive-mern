@@ -7,7 +7,6 @@ import { emptyUserRegister } from 'src/store/reducer/register';
 
 
 const logoutMiddleware = (store) => (next) => (action) => {
-  console.log(store.getState().login.email);
   switch (action.type) {
     case STORE_LOGOUT:
       axios({
@@ -19,8 +18,6 @@ const logoutMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log("Passage réussi dans le Middleware")
-          console.log(response);
           store.dispatch(isLogged(response.data.isAuthenticated));
           if (response.data.isAuthenticated === false) {
               store.dispatch(emptyUser());

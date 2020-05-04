@@ -8,14 +8,16 @@ import Account from 'src/containers/Account';
 
 import './headerdesk.scss';
 
-const HeaderDesk = ({ isLogged, currentUser }) => {
+import LoginSuccess from 'src/components/V2/Layout/Log/LoginSuccess';
+import LoginFail from 'src/components/V2/Layout/Log/LoginFail';
+
+const HeaderDesk = ({ isLogged, currentUser, openFail, openSuccess, handleCloseSuccessModal, handleCloseFailModal, }) => {
 
   // Login Modal Hook
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(currentUser);
   return (
     <div id="header-desk">
       <div id="header-desk-logo">
@@ -31,6 +33,12 @@ const HeaderDesk = ({ isLogged, currentUser }) => {
         )}
         {show && isLogged && (
           <Account show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} currentUser={currentUser} />
+        )}
+        {openSuccess !== null && (
+          <LoginSuccess show={openSuccess} handleClose={handleCloseSuccessModal} />
+        )}
+        {openFail && (
+          <LoginFail show={openFail} handleClose={handleCloseFailModal} />
         )}
         <Icon name="cart" size="big" />
       </ul>

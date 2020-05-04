@@ -11,9 +11,11 @@ const Login = ({
   handleChangeEmail,
   handleChangePassword,
   handleSubmitLogin,
-  isLogged,
+  openSuccess,
+  openFail
 }) => {
-
+  console.log(openSuccess);
+  console.log(openFail)
   const [register, setRegister] = useState(false);
   const handleCloseRegister = () => setRegister(false);
   const handleRegister = () => setRegister(true);
@@ -29,6 +31,7 @@ const Login = ({
   };
 
   const handleCompSubmitLogin = () => {
+    handleClose();
     handleSubmitLogin();
   }
 

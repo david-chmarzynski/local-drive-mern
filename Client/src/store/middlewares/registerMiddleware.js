@@ -5,7 +5,6 @@ import { SUBMIT_NEW_USER } from 'src/store/reducer/register';
 
 
 const registerMiddleware = (store) => (next) => (action) => {
-  console.log(store.getState().register.email);
   switch (action.type) {
     case SUBMIT_NEW_USER:
       axios({
@@ -18,8 +17,6 @@ const registerMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log("Passage réussi dans le Middleware")
-          console.log(response);
         })
         .catch((error) => {
           console.log(error);

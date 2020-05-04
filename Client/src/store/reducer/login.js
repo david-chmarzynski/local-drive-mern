@@ -6,6 +6,8 @@ const initialState = {
     password: null,
     isLogged: null,
     currentUser: null,
+    openSuccess: false,
+    openFail: false,
   };
   
   // --- action types
@@ -14,6 +16,10 @@ const initialState = {
   const IS_LOGGED = "IS_LOGGED";
   const FECTH_USER_DATA = "FECTH_USER_DATA";
   const EMPTY_USER = "EMPTY_USER";
+  const OPEN_SUCCESS = "OPEN_SUCCESS";
+  const OPEN_FAIL = "OPEN_FAIL";
+  const CLOSE_SUCCESS = "CLOSE_SUCCESS";
+  const CLOSE_FAIL = "CLOSE_FAIL";
   export const SUBMIT_LOGIN = "SUBMIT_LOGIN";
   
   // --- Reducer
@@ -45,6 +51,26 @@ const initialState = {
             return {
               ...state,
               currentUser: action.local,
+            };
+        case OPEN_SUCCESS:
+            return {
+              ...state,
+              openSuccess: true,
+            };
+        case OPEN_FAIL:
+            return {
+              ...state,
+              openFail: true,
+            };
+        case CLOSE_SUCCESS:
+            return {
+              ...state,
+              openSuccess: false,
+            };
+        case CLOSE_FAIL:
+            return {
+              ...state,
+              openFail: false,
             };
       default:
         return state;
@@ -78,6 +104,22 @@ const initialState = {
 
   export const emptyUser = () => ({
       type: EMPTY_USER
+  });
+
+  export const openSuccessModal = () => ({
+    type: OPEN_SUCCESS
+  });
+
+  export const openFailModal = () => ({
+    type: OPEN_FAIL
+  });
+
+  export const closeSuccessModal = () => ({
+    type: CLOSE_SUCCESS
+  });
+
+  export const closeFailModal = () => ({
+    type: CLOSE_FAIL
   });
   
   // --- export

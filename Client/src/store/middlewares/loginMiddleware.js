@@ -1,11 +1,16 @@
 import axios from 'axios';
 
-import { SUBMIT_LOGIN, isLogged, fetchUserData } from 'src/store/reducer/login';
+import {
+  SUBMIT_LOGIN, // APPEL AXIOS POUR LA CONNEXION
+  isLogged, // RESULTAT DE IS_AUTHENTICATED()
+  fetchUserData, // RECUPERATION DES INFOS USER
+  openSuccessModal, // EN CAS DE SUCCES, PERMET D'AFFICHER LA MODALE
+  openFailModal // EN CAS D'ECHEC, PERMET D'AFFICHER LA MODALE
+} from 'src/store/reducer/login';
 
 
 
 const loginMiddleware = (store) => (next) => (action) => {
-  console.log(store.getState().login.email);
   switch (action.type) {
     case SUBMIT_LOGIN:
       axios({
@@ -17,12 +22,12 @@ const loginMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
-          console.log("Passage réussi dans le Middleware")
-          console.log(response);
           store.dispatch(isLogged(response.data.isAuthenticated));
           store.dispatch(fetchUserData(response.data.currentUser.local));
+          store.dispatch(openSuccessModal());
         })
         .catch((error) => {
+          store.dispatch(openFailModal());
           console.log(error);
         })
         .finally(() => {

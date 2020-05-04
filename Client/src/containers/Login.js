@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 
 import Login from 'src/components/V2/Layout/Log/Login';
 
-import { storeEmail, storePassword, storeSubmitLogin } from 'src/store/reducer/login';
+import { storeEmail, storePassword, storeSubmitLogin, closeSuccessModal, closeFailModal } from 'src/store/reducer/login';
 
 const mapStateToProps = (state) => ({
   storedPassword: state.login.password,
   storedCPassword: state.login.cpassword,
-  isLogged: state.login.isLogged
+  isLogged: state.login.isLogged,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -74,11 +74,6 @@ const Register = ({
               <Form.Control type="email" placeholder="Email" onChange={handleCompChangeEmail} />
             </Form.Group>
 
-            {/* <Form.Group controlId="formBasicPassword" className="title-transition">
-              <Form.Label>Mot de passe</Form.Label>
-              <Form.Control type="password" placeholder="Mot de passe" onChange={handleCompChangePassword} />
-            </Form.Group> */}
-
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Mot de passe</Form.Label>
               <InputGroup>

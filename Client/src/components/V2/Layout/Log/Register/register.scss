@@ -6,3 +6,12 @@
     display: flex;
     justify-content: space-between;
 }
+
+#inputGroupPrepend {
+    background-color: white;
+    border-left: none;
+}
+
+.wrong {
+    color: red;
+}

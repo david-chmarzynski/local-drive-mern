@@ -3,15 +3,33 @@ import { Modal, Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 import './login.scss';
-import Register from 'src/components/V2/Layout/Log/Register';
+import Register from 'src/containers/Register';
 
 const Login = ({
   show,
   handleClose,
+  handleChangeEmail,
+  handleChangePassword,
+  handleSubmitLogin,
+  isLogged
 }) => {
   const [register, setRegister] = useState(false);
   const handleCloseRegister = () => setRegister(false);
   const handleRegister = () => setRegister(true);
+
+  const handleCompChangeEmail = (event) => {
+    const email = event.target.value;
+    handleChangeEmail(email);
+  };
+
+  const handleCompChangePassword = (event) => {
+    const password = event.target.value;
+    handleChangePassword(password);
+  };
+
+  const handleCompSubmitLogin = () => {
+    handleSubmitLogin();
+  }
 
   return (
     <>
@@ -26,12 +44,12 @@ const Login = ({
           <Form>
             <Form.Group controlId="formBasicEmail" className="title-transition">
               <Form.Label>Adresse Email</Form.Label>
-              <Form.Control type="email" placeholder="Email" />
+              <Form.Control type="email" placeholder="Email" onChange={handleCompChangeEmail}/>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword" className="title-transition">
               <Form.Label>Mot de passe</Form.Label>
-              <Form.Control type="password" placeholder="Mot de passe" />
+              <Form.Control type="password" placeholder="Mot de passe" onChange={handleCompChangePassword} />
             </Form.Group>
 
             <Form.Group controlId="formBasicCheckbox" className="title-transition">
@@ -40,6 +58,11 @@ const Login = ({
             <Form.Text className="text-muted title-transition">
               <a href="#">Mot de passe oublié ?</a>
             </Form.Text>
+            {isLogged && (
+            <Form.Text>
+              Vous êtes à présent connecté
+            </Form.Text>
+            )}
 
           </Form>
         </Modal.Body>
@@ -47,7 +70,7 @@ const Login = ({
           <Button variant="secondary" onClick={handleRegister}>
             Créer une compte
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleClose} onClick={handleCompSubmitLogin} >
             Se connecter
           </Button>
         </Modal.Footer>

@@ -3,9 +3,14 @@ const morgan = require('morgan');
 const errorHandler = require('errorhandler');
 const cors = require('cors');
 const index = require('./routes');
+require('./database');
 
 const app = express();
+exports.app = app;
 const port = process.env.PORT || 3000;
+
+require('./config/session.config');
+require('./config/passport.config');
 
 app.use(morgan('short'));
 app.use(express.json());

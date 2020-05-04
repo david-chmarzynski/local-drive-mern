@@ -1,25 +1,25 @@
 import axios from 'axios';
 
-import { SUBMIT_LOGIN, isLogged } from 'src/store/reducer/login';
+import { SUBMIT_NEW_USER } from 'src/store/reducer/register';
 
 
 
-const loginMiddleware = (store) => (next) => (action) => {
-  console.log(store.getState().login.email);
+const registerMiddleware = (store) => (next) => (action) => {
+  console.log(store.getState().register.email);
   switch (action.type) {
-    case SUBMIT_LOGIN:
+    case SUBMIT_NEW_USER:
       axios({
         method: 'post',
-        url: 'http://localhost:3000/users/signin',
+        url: 'http://localhost:3000/users/register',
         data: {
           email: store.getState().register.email,
           password: store.getState().register.password,
+          isShop: store.getState().register.isShop
         },
       })
         .then((response) => {
           console.log("Passage réussi dans le Middleware")
           console.log(response);
-          store.dispatch(isLogged(response.data.isAuthenticated));
         })
         .catch((error) => {
           console.log(error);
@@ -34,4 +34,4 @@ const loginMiddleware = (store) => (next) => (action) => {
   }
 };
 
-export default loginMiddleware;
+export default registerMiddleware;

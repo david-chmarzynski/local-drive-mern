@@ -4,7 +4,7 @@ import React from 'react';
 import './app.scss';
 
 
-import Header from 'src/components/V2/Layout/Header/HeaderDesk';
+import Header from 'src/containers/HeaderDesk';
 import Home from 'src/components/V2/Layout/Home';
 import Footer from 'src/components/V2/Layout/Footer';
 

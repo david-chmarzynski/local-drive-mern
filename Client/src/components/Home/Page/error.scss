@@ -1,0 +1,28 @@
+@import '../../../styles/vars';
+
+#error {
+  position: relative;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+& strong {
+  text-align: center;
+  font-size: 9em;
+  color: $bg-color;
+}
+background-image: url("/../src/img/4142561.png");
+background-repeat: no-repeat;
+background-position: center;
+background-size: 10%;
+
+}
+
+em {
+  display: block;
+  text-align: center;
+  font-size: 1.4em;
+  color: black;
+  font-style: italic;
+}

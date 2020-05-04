@@ -1,0 +1,27 @@
+#footer {
+    height: 20vh;
+    width: 100%;
+    background-color: #244958;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em;
+}
+
+#footer-links {
+    display: flex;
+    flex-direction: column;
+    
+    & > a {
+        color: orange;
+    }
+}
+
+#footer-copyright > p {
+    color: orange;
+}
+
+#footer-social > a {
+    color: white;
+}

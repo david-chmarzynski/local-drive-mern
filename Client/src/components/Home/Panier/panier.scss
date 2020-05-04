@@ -1,0 +1,43 @@
+@import '../../../styles/vars';
+
+
+
+
+#headerpanier {
+  border-bottom: 1px solid gray;
+  background-color: rgb(248, 248, 248);
+
+  & div.three.wide.column {
+    padding: 0.5em;
+    text-align: center;
+   
+  }
+  & div.four.wide.column {
+    padding: 0.5em;
+    text-align: center;
+   
+  }
+  & div.nine.wide.column {
+    padding: 0.5em;
+    text-align: center;
+  }
+  & button {
+    background-color: $bg-color;
+    color: white;
+    transition-duration: .3s;
+    font-size: 0.9em;
+    &:hover {
+      color: rgb(108, 169, 253);
+      transition-duration: .3s;
+    }
+  }
+
+
+}
+
+
+
+strong {
+  font-size: 0.9em;
+}
+

@@ -1,0 +1,75 @@
+#modify {
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+#segment {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+#product-list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 3em;
+}
+
+#product-item {
+  margin: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.description {
+  height: 80px;
+  overflow-y: auto;
+}
+
+#product-item > div > div.bordered.image {
+  height: 190px;
+}
+
+.ui.card > .image > img, .ui.cards > .card > .image > img {
+  height: 94%;
+}
+#product-area > form > div:nth-child(n) > div:nth-child(n) > div{
+  margin-top: 1rem;
+}
+.cards {
+  margin: auto;
+  margin-top: 1em;
+}
+#segment > div {
+  margin: auto;
+}
+img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+@media (max-width: 955px) {
+  #product-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #product-item {
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  #modify-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.5em;
+  }
+
+}
+#body > div.ui.page.modals.dimmer.transition.visible.active > div > div.image.content > div.description > div.ui.header {
+  color: white;
+  padding: .5em;
+}

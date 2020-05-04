@@ -1,0 +1,1 @@
+-Boutton de déconnexion **SUR LOGO MON COMPTE** ==> Modale Mon Compte, accès données perso ect + boutton déconnexion 

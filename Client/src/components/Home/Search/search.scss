@@ -1,0 +1,87 @@
+@import '../../../styles/vars';
+
+// Set the search bar width
+.input {
+  margin: auto auto;
+  width: 80%;
+  margin-top: 10em;
+}
+#field-ville{
+  box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.2);
+  border-radius: 7px;
+  border: none;
+  // margin-bottom: 5%;
+ 
+}
+
+#breadcrumb-result {
+  position: absolute;
+  left: -13em;
+  top: 15em;
+}
+.ui.form .field > label {
+  display: none;
+}
+
+#main > div.input > form > button{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 0px 7px 7px 0px;
+  background-color: $bg-color;
+  box-shadow: 5px 0px 20px 4px rgba(0, 0, 0, 0.2);
+}
+#main > div.input > form > button > i{
+  filter: invert(1);
+}
+#results > div > a:nth-child(n) > div{
+  margin: 1em 0.5em;
+  box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.2);
+  border-radius: 7px;
+  background: rgba(236, 236, 236, 0.35);
+  padding: 1em;
+  width: 20rem;
+  height: 15rem;
+}
+#results > div > a:nth-child(n):hover > div{
+  transition-duration: 0.3s;
+  background: rgba(126, 162, 212, 0.35);
+  box-shadow: -1px 10px 63px 4px rgba(153, 131, 131, 0.356);
+}
+
+div.header {
+  text-transform: uppercase;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: $bg-color;
+  border-radius: 4px;
+ 
+}
+
+.ui.card > .content > .header, .ui.cards > .card > .content > .header {
+  color: white;
+}
+
+#searchcard {
+  justify-content: center;
+}
+
+// Set the div result centered
+div > .ui.search > .results {
+  left: 39%;
+}
+#main > div.input > div > div{
+  padding:0 12%;
+}
+#results > div{
+  margin: auto;
+  margin-top: 2rem;
+}
+
+@media (max-width: 955px) {
+  #breadcrumb-result {
+  position: absolute;
+  left: -2.5em;
+  bottom: 25em;
+}
+}

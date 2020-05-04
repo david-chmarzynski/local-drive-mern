@@ -1,0 +1,53 @@
+@import 'src/styles/vars';
+
+#commercant > div > div > label{
+  color:red;
+}
+
+body > div.ui.top.aligned.page.modals.dimmer.transition.visible.active > div{
+  animation: modal .5s alternate ease;
+}
+
+
+.settings {
+  padding: 2rem;
+  border-radius: 10px;
+  width: auto;
+}
+
+#modale > div > form > button{
+  background-color:  #39828E;
+}
+
+.form-settings {
+  width: 80%;
+  margin: auto;
+  &-submit {
+    width: 100%;
+    border: none;
+    padding: .7em 1em;
+    font-weight: 700;
+    color: #fff;
+    border-radius: .5em;
+  }
+  & button{
+    background-color:  #39828E;
+  }
+
+  @keyframes modal {
+   0% {
+     transform: scale(.7);
+     opacity: 0;
+   }  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+}
+
+@media (max-width: 955px) {
+  .modal {
+    max-width: 100%;
+  }
+}
+

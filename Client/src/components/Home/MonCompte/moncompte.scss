@@ -1,0 +1,68 @@
+@import 'src/styles/vars';
+#account {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  margin-bottom: 5em;
+}
+
+div.ui.header h2 {
+    color: $lgtblue-color;
+  }
+#identifiants > div {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  margin: auto;
+  margin-bottom: 1em;
+  span {
+      margin-left: 2em;
+      width: 30%;
+  }
+  
+}
+h2, h1 {
+  color: white;
+  padding: 0.5rem;
+  font-style: italic;
+}
+#coordonnees {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  margin: auto;
+  margin-bottom: 1em;
+  span {
+      margin-right: 2em;
+      width: 30%;
+  }
+  input {
+      margin-left: 3em;
+  }
+
+}
+#radio {
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  padding: .67857143em 1em;
+  width: 80%;
+}
+#button {
+  margin-top: 1em;
+}
+#button > button{
+  background-color: $bg-color;
+    color: white;
+    transition-duration: .3s;
+
+    &:hover {
+      color: rgb(108, 169, 253);
+      transition-duration: .3s;
+    }
+}

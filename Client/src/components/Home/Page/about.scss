@@ -1,0 +1,27 @@
+#about {
+  margin: 0 auto;
+  text-align: left;
+  width: 50%;
+  padding-top: 1em;
+  padding-bottom: 5em;
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
+
+#concept {
+  margin-top: 2em;
+  margin-bottom: 6em;
+  & video {
+    margin: 0em;
+    padding: 0em;
+  }
+}
+
+#description {
+  width: 80%;
+  margin: auto;
+}
+
+#about-main h2 {
+  margin-top: 3em;
+}

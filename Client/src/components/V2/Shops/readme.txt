@@ -1,0 +1,1 @@
+Affichage des magasins disponible dans une ville, après recherche

@@ -1,0 +1,123 @@
+@import '../../../styles/vars';
+
+#header {
+
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  border-bottom: rgba(255, 255, 255, 0.199);
+
+  &-sub {
+    background: rgba($color: #dadada, $alpha: 0.5);
+
+  }
+
+  #tot {
+    font-size: 1rem;
+    margin-right: 1rem;
+    color: white;
+    background-color: red;
+    height: 1.4rem;
+    width: 1.5rem;
+    font-weight: 400;
+    border-radius: 200px 200px 200px 0px;
+  }
+    
+
+  &-transparency {
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 1em;
+  }
+
+
+    img {
+      width: 360px;
+      border: none;
+      z-index: 10;
+    }
+
+    img:hover {
+
+    }
+
+    & a {
+      border-radius: 10px;
+      margin-left: 0em;
+      color: white;
+      transition-duration: .3s;
+    }
+
+    & a:hover {
+        color: rgb(108, 169, 253);
+        transition-duration: .3s;
+    }
+
+    .navigation-item {
+      background: none;
+    }
+}
+
+#login-btn {
+  margin-left: 2em;
+
+  & button {
+    background-color: $bg-color;
+    color: white;
+    transition-duration: .3s;
+    
+    &:hover {
+      color: rgb(108, 169, 253);
+      transition-duration: .3s;
+    }
+  }
+}
+
+#subscribe-btn {
+  margin-left: 1em;
+
+  & button {
+    background-color: $bg-color;
+    color: white;
+    transition-duration: .3s;
+    
+    &:hover {
+      color: rgb(108, 169, 253);
+      transition-duration: .3s;
+    }
+  }
+}
+
+#basket {
+  margin-left: 3em;
+  margin-right: 1em;
+  color: $bg-color;
+  
+    &:hover {
+      color: $lgtbg-color;
+    }
+  }
+
+
+#header-transparency > a.navigation-item.navigation-item > button{
+  background-color: $bg-color;
+  color: white;
+  &:hover {
+    color: rgb(108, 169, 253);
+    transition-duration: .3s;
+  }
+}
+
+@media (max-width: 955px){
+  #menu-burger {
+    position: sticky;
+    top: 0;
+  }
+}
+

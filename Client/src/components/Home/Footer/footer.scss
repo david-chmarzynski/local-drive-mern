@@ -1,0 +1,31 @@
+@import '../../../styles/vars';
+
+#footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  background: #e6e6e6;
+  z-index: 2;
+
+  & a {
+    transition-duration: .3s;
+    color: $bg-color;
+  }
+
+  & a:hover {
+    transition-duration: .3s;
+    color: rgb(108, 169, 253);
+  }
+
+}
+
+@media (max-width: 955px){
+  #footer {
+    margin-bottom: 40px;
+    font-size: 0.8em;
+  }
+}

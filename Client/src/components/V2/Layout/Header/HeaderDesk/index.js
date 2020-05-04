@@ -4,17 +4,18 @@ import { Icon } from 'semantic-ui-react';
 // == Components Import
 import Login from 'src/containers/Login';
 import SearchBar from 'src/components/V2/SearchBar';
+import Account from 'src/components/V2/Layout/Header/HeaderDesk/Account';
 
 import './headerdesk.scss';
 
-const HeaderDesk = ({ isLogged }) => {
+const HeaderDesk = ({ isLogged, currentUser }) => {
 
   // Login Modal Hook
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  console.log(isLogged);
+  console.log(currentUser);
   return (
     <div id="header-desk">
       <div id="header-desk-logo">
@@ -24,9 +25,12 @@ const HeaderDesk = ({ isLogged }) => {
         <SearchBar />
         <Icon name="map marker alternate" size="big" />
         <Icon name="user" size="big" onClick={handleShow} />
-        {show && (
+        {show && !isLogged && (
           // Giving needed props to Login
           <Login show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} />
+        )}
+        {show && isLogged && (
+          <Account show={show} setShow={setShow} handleClose={handleClose} handleShow={handleShow} currentUser={currentUser} />
         )}
         <Icon name="cart" size="big" />
       </ul>

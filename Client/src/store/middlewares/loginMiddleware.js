@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SUBMIT_LOGIN, isLogged } from 'src/store/reducer/login';
+import { SUBMIT_LOGIN, isLogged, fetchUserData } from 'src/store/reducer/login';
 
 
 
@@ -20,6 +20,7 @@ const loginMiddleware = (store) => (next) => (action) => {
           console.log("Passage réussi dans le Middleware")
           console.log(response);
           store.dispatch(isLogged(response.data.isAuthenticated));
+          store.dispatch(fetchUserData(response.data.currentUser.local));
         })
         .catch((error) => {
           console.log(error);

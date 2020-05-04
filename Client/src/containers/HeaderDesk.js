@@ -4,7 +4,8 @@ import HeaderDesk from 'src/components/V2/Layout/Header/HeaderDesk';
 
 
 const mapStateToProps = (state) => ({
-  isLogged: state.login.isLogged
+  isLogged: state.login.isLogged,
+  currentUser: state.login.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({});

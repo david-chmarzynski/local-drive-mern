@@ -11,8 +11,9 @@ const Login = ({
   handleChangeEmail,
   handleChangePassword,
   handleSubmitLogin,
-  isLogged
+  isLogged,
 }) => {
+
   const [register, setRegister] = useState(false);
   const handleCloseRegister = () => setRegister(false);
   const handleRegister = () => setRegister(true);
@@ -58,11 +59,6 @@ const Login = ({
             <Form.Text className="text-muted title-transition">
               <a href="#">Mot de passe oublié ?</a>
             </Form.Text>
-            {isLogged && (
-            <Form.Text>
-              Vous êtes à présent connecté
-            </Form.Text>
-            )}
 
           </Form>
         </Modal.Body>

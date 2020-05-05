@@ -20,7 +20,7 @@ const SearchBar = () => {
   return (
     <div id="searchbar">
       <form action="">
-        <input type="text" name="" id="search-input" placeholder="Recherchez votre ville" onChange={handleInputChange} />
+        <input type="text" name="" id="search-input" placeholder="Recherchez votre ville" onChange={handleInputChange} autoComplete="off"/>
       </form>
     </div>
   );

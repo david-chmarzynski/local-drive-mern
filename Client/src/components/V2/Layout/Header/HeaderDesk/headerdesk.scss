@@ -50,7 +50,13 @@
     
 }
 
-@media (max-width: 800px) {
+@media (min-width: 1400px) {
+    #header-desk-icons {
+        width: 30%;
+    }
+}
+
+@media (max-width: 900px) {
     #header-desk-icons {
         width: 85%;
     }

@@ -14,8 +14,6 @@ const Login = ({
   openSuccess,
   openFail
 }) => {
-  console.log(openSuccess);
-  console.log(openFail)
   const [register, setRegister] = useState(false);
   const handleCloseRegister = () => setRegister(false);
   const handleRegister = () => setRegister(true);
@@ -38,7 +36,7 @@ const Login = ({
   return (
     <>
       {!register && (
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} id="login">
         <Modal.Header closeButton>
           <Modal.Title className="title-transition">
             Connexion

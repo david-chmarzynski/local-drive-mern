@@ -7,13 +7,14 @@ import { Modal, Button } from 'react-bootstrap';
 const LoginFail = ({ show, handleClose }) => {
     return (
         <div id="login-fail">
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} id="login-fail-modal" >
             <Modal.Header closeButton>
+                <Modal.Title>Une erreur s'est produite</Modal.Title>
             </Modal.Header>
-            <Modal.Body>Une erreur s'est produite !</Modal.Body>
+            <Modal.Body><li>Email et/ou Mot de passe erroné</li></Modal.Body>
             <Modal.Footer>
             <Button variant="danger" onClick={handleClose}>
-                D'accord !
+                Fermer
             </Button>
             </Modal.Footer>
         </Modal>

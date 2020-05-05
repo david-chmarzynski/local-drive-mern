@@ -61,7 +61,7 @@ const Register = ({
 
   return (
     <div id="register">
-      <Modal show={show} onHide={handleClose} animation={false} >
+      <Modal show={show} onHide={handleClose} animation={false} id="register-modal">
         <Modal.Header closeButton>
           <Modal.Title className="title-transition">
             Inscription
@@ -136,7 +136,7 @@ const Register = ({
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseRegister}>
-            <Icon name="arrow circle left" color="white" />
+            <Icon name="arrow circle left" />
           </Button>
           <Button variant="primary" type="submit" onClick={handleCompSubmitNewUser}>
               S'inscrire

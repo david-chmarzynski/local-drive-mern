@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { STORE_LOGOUT } from 'src/store/reducer/account';
+import { openSuccessModalAccount, openFailModalAccount } from 'src/store/reducer/account';
 import { isLogged, emptyUser } from 'src/store/reducer/login';
 import { emptyUserRegister } from 'src/store/reducer/register';
 
@@ -20,11 +21,13 @@ const logoutMiddleware = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(isLogged(response.data.isAuthenticated));
           if (response.data.isAuthenticated === false) {
+              store.dispatch(openSuccessModalAccount());
               store.dispatch(emptyUser());
               store.dispatch(emptyUserRegister());
           }
         })
         .catch((error) => {
+          store.dispatch(openFailModalAccount());
           console.log(error);
         })
         .finally(() => {

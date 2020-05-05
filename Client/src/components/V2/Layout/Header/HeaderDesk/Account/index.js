@@ -16,7 +16,7 @@ const Account = ({
     }
     return (
         <div id="account">
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} id="account-modal">
                 <Modal.Header closeButton>
                 <Modal.Title className="title-transition">
                     {currentUser !== null && (

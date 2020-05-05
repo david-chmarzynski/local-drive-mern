@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { SUBMIT_NEW_USER } from 'src/store/reducer/register';
+import { openSuccessModalRegister, openFailModalRegister } from 'src/store/reducer/register';
 
 
 
@@ -17,8 +18,10 @@ const registerMiddleware = (store) => (next) => (action) => {
         },
       })
         .then((response) => {
+          store.dispatch(openSuccessModalRegister());
         })
         .catch((error) => {
+          store.dispatch(openFailModalRegister());
           console.log(error);
         })
         .finally(() => {

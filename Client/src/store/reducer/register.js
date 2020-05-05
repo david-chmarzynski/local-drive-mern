@@ -6,6 +6,8 @@ const initialState = {
     password: null,
     cpassword: null,
     isShop: false,
+    openSuccessRegister: false,
+    openFailRegister: false,
   };
   
   // --- action types
@@ -14,6 +16,12 @@ const initialState = {
   const STORE_CPASSWORD = "STORE_CPASSWORD";
   const STORE_IS_SHOP = "STORE_IS_SHOP";
   const EMPTY_USER = "EMPTY_USER";
+
+  const OPEN_SUCCESS_REGISTER = "OPEN_SUCCESS_REGISTER";
+  const OPEN_FAIL_REGISTER = "OPEN_FAIL_REGISTER";
+  const CLOSE_SUCCESS_REGISTER = "CLOSE_SUCCESS_REGISTER";
+  const CLOSE_FAIL_REGISTER = "CLOSE_FAIL_REGISTER";
+
   export const SUBMIT_NEW_USER = "SUBMIT_NEW_USER";
   
   // --- Reducer
@@ -45,6 +53,26 @@ const initialState = {
           email: null,
           password: null,
           cpassword: null
+        };
+      case OPEN_SUCCESS_REGISTER:
+        return {
+          ...state,
+          openSuccessRegister: true,
+        };
+      case CLOSE_SUCCESS_REGISTER:
+        return {
+          ...state,
+          openSuccessRegister: false,
+        };
+      case OPEN_FAIL_REGISTER:
+        return {
+          ...state,
+          openFailRegister: true,
+        };
+      case CLOSE_FAIL_REGISTER:
+        return {
+          ...state,
+          openFailRegister: false,
         };
   
       default:
@@ -78,6 +106,22 @@ const initialState = {
 
   export const emptyUserRegister = () => ({
     type: EMPTY_USER
+  });
+
+  export const openSuccessModalRegister = () => ({
+    type: OPEN_SUCCESS_REGISTER
+  });
+
+  export const openFailModalRegister = () => ({
+    type: OPEN_FAIL_REGISTER
+  });
+
+  export const closeSuccessModalRegister = () => ({
+    type: CLOSE_SUCCESS_REGISTER
+  });
+
+  export const closeFailModalRegister = () => ({
+    type: CLOSE_FAIL_REGISTER
   });
   
   // --- export

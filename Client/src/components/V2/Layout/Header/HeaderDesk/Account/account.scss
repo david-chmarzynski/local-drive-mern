@@ -2,3 +2,11 @@
     display: flex;
     flex-direction: row-reverse;
 }
+
+#account-modal {
+    position: absolute;
+    right: 2em;
+    top: 5vh;
+    box-sizing: content-box;
+    width: 30%;
+}

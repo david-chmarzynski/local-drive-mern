@@ -1,0 +1,11 @@
+#logout-success-modal {
+    position: initial !important;
+    margin-top: 0 !important;
+    box-sizing: content-box !important;
+    width: 30% !important;
+}
+
+#logout-success-modal > div > div.modal-footer {
+    display: flex;
+    flex-direction: row-reverse;
+}

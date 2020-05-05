@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 
 import Register from 'src/components/V2/Layout/Log/Register';
 
-import { storeEmail, storePassword, storeCPassword, storeIsShop, storeSubmitNewUser } from 'src/store/reducer/register';
+import { storeEmail, storePassword, storeCPassword, storeIsShop, storeSubmitNewUser, storeSubmitNewShop } from 'src/store/reducer/register';
 
 const mapStateToProps = (state) => ({
   storedPassword: state.register.password,
-  storedCPassword: state.register.cpassword
+  storedCPassword: state.register.cpassword,
+  storedIsShop: state.register.isShop
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -29,6 +30,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   handleSubmitNewUser: () => {
     dispatch(storeSubmitNewUser());
+  },
+
+  handleSubmitNewShop: () => {
+    dispatch(storeSubmitNewShop());
   },
 });
 

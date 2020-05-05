@@ -14,10 +14,11 @@ const Register = ({
   handleChangeCPassword,
   handleChangeIsShop,
   handleSubmitNewUser,
+  handleSubmitNewShop,
   storedPassword,
-  storedCPassword
+  storedCPassword,
+  storedIsShop
 }) => {
-
   // En cas de mots de passe différents
   const [error, setError] = useState(false);
 
@@ -52,7 +53,11 @@ const Register = ({
     event.preventDefault();
     if (storedPassword === storedCPassword) {
       handleClose();
-      handleSubmitNewUser();
+      if (storedIsShop) {
+        handleSubmitNewShop();
+      } else {
+        handleSubmitNewUser();
+      }
     } else {
       setError(true);
     }

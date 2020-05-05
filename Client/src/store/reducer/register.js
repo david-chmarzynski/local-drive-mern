@@ -23,6 +23,7 @@ const initialState = {
   const CLOSE_FAIL_REGISTER = "CLOSE_FAIL_REGISTER";
 
   export const SUBMIT_NEW_USER = "SUBMIT_NEW_USER";
+  export const SUBMIT_NEW_SHOP = "SUBMIT_NEW_SHOP";
   
   // --- Reducer
   const reducer = (state = initialState, action = {}) => {
@@ -102,6 +103,10 @@ const initialState = {
 
   export const storeSubmitNewUser = () => ({
     type: SUBMIT_NEW_USER,
+  });
+
+  export const storeSubmitNewShop = () => ({
+    type: SUBMIT_NEW_SHOP,
   });
 
   export const emptyUserRegister = () => ({

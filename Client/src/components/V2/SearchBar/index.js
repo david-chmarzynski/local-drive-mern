@@ -1,27 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './searchbar.scss';
-import { Icon } from 'semantic-ui-react';
 
+import Results from './Results';
+import { Modal, Button } from 'react-bootstrap';
 
-const SearchBar = () => {
+const SearchBar = ({ result, handleChangeSearch, handleSubmitSearch, handleGetEmptyResult}) => {
 
   // Test pour future recherche onChange
   const handleInputChange = (event) => {
-    const inputValue = event.target.value;
-    console.log(inputValue);
-    if (inputValue.length > 0) {
-      console.log("true");
-    } else {
-      console.log("false");
-    }
+    const search = event.target.value;
+    handleChangeSearch(search);
+    handleSubmitSearch();
   };
+
+  const [modal, setModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setModal(false);
+    handleGetEmptyResult();
+  }
+
+  const handleOpenModal = () => {
+    setModal(true);
+  }
 
   return (
     <div id="searchbar">
-      <form action="">
-        <input type="text" name="" id="search-input" placeholder="Recherchez votre ville" onChange={handleInputChange} autoComplete="off"/>
-      </form>
+       {!modal && (
+         <>
+        <form action="">
+          <input type="text" name="" id="search-input" placeholder="Recherchez votre ville" onChange={handleInputChange} autoComplete="off" onClick={handleOpenModal}/>
+        </form>
+        </>
+       )}
+       {modal && (
+             <>
+             <form action="">
+             <Modal show={modal} onHide={handleCloseModal} id="modal-container" animation={false}>
+               <Modal.Header closeButton>
+                 <Modal.Title>
+                  <input autoFocus type="text" name="" id="search-input-modal" placeholder="Recherchez votre ville" onChange={handleInputChange} autoComplete="off" onClick={() => setModal(true)}/>
+                 </Modal.Title>
+               </Modal.Header>
+                  {result && (
+                    <Modal.Body>
+                    <div id="search-bar-results">
+                        <Results result={result} />
+                    </div>
+                  </Modal.Body>
+                  )}
+             </Modal>
+             </form>
+           </>
+       )}
     </div>
   );
 };

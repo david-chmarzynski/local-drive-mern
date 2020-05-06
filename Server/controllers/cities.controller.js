@@ -2,7 +2,8 @@ const { createCity, findCityByName } = require('../queries/cities.queries');
 const passport = require('passport');
 
 exports.search = async (req, res, next) => {
-    const body = req.query
+    const body = req.body;
+    console.log(body.name)
     try {
         const search = await findCityByName(body.name);
         res.json({

@@ -12,12 +12,57 @@ background: rgba(#244958,.02);
 box-shadow: inset 0 -1px 0 rgba(white,.9);
 color: white;
 margin-bottom: 0em;
+position: relative;
 }
 
 #searchbar {
     width: 70%;
+    z-index: 10;
 }
 
 input::placeholder {
     color: rgba(255, 255, 255, 0.562);
+}
+
+#modal-container {
+
+    position: absolute;
+    top: -1.9em;
+    right: 10em;
+    width: 30%;
+
+    .modal-content {
+        border: none;
+
+        span {
+            color: white;
+        }
+    }
+    
+    .modal-header {
+        background:#244958;
+        border-bottom: none;
+    }
+
+    #search-input-modal {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 180%;
+        border: 0;
+        font-family: inherit;
+        padding: 8px 12px 0px 12px;
+        height: 45px;
+        font-size: 16px;
+        font-weight: 400;
+        background: rgba(#244958,.02);
+        box-shadow: inset 0 -1px 0 rgba(white,.9);
+        color: white;
+        margin-bottom: 0em;
+        position: relative;
+    }
+}
+
+.list-group-item {
+    border: none;
+    // border-bottom: 1px solid black;
 }

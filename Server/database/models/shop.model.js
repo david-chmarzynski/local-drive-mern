@@ -14,7 +14,7 @@ shopSchema.statics.hashPassword = (password) => {
     return bcrypt.hash(password, 12);
 };
 
-shopSchema.methods.comparePassword = function(password) {
+shopSchema.methods.compareShopPassword = function(password) {
     return bcrypt.compare(password, this.local.password)
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Modal, Button, Card, ListGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import './account.scss';
 
@@ -9,6 +10,7 @@ const Account = ({
     currentUser,
     handleLogout
 }) => {
+    console.log(currentUser.isShop)
     const handleCompLogout = (event) => {
         event.preventDefault();
         handleClose();
@@ -28,9 +30,20 @@ const Account = ({
                 <Card>
                     <Card.Header>Mon Compte</Card.Header>
                     <ListGroup variant="flush">
+                        {!currentUser.isShop && (
+                        <>
                         <ListGroup.Item>Mes informations personnelles</ListGroup.Item>
                         <ListGroup.Item>Mes commandes</ListGroup.Item>
                         <ListGroup.Item>Options</ListGroup.Item>
+                        </>
+                        )}
+                        {currentUser.isShop && (
+                        <>
+                        <ListGroup.Item>Mon Magasin</ListGroup.Item>
+                        <Link to="/admin/add/product"><ListGroup.Item>Mes produits</ListGroup.Item></Link>
+                        <ListGroup.Item>Mes promotions</ListGroup.Item>
+                        </>
+                        )}
                     </ListGroup>
                 </Card>
                 </Modal.Body>

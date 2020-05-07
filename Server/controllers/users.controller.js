@@ -1,11 +1,13 @@
 const { createUser, findUserByMail } = require('../queries/users.queries');
 const passport = require('passport');
+const { findShopByMail } = require('../queries/shops.queries');
 
 exports.register = async (req, res, next) => {
     const body = req.body;
     try {
         const createdUser = await findUserByMail(req.body.email);
-        if (createdUser) {
+        const createdShop = await findShopByMail(req.body.email);
+        if (createdUser || createdShop) {
             return res.status(400).json({
                 message: "Un utilisateur utilise déjà cet email",
                 user: createdUser

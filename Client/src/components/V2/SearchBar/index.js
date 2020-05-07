@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './searchbar.scss';
 
 import Results from './Results';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 const SearchBar = ({ result, handleChangeSearch, handleSubmitSearch, handleGetEmptyResult}) => {
 
@@ -19,24 +19,21 @@ const SearchBar = ({ result, handleChangeSearch, handleSubmitSearch, handleGetEm
   const handleCloseModal = () => {
     setModal(false);
     handleGetEmptyResult();
-  }
+  };
 
   const handleOpenModal = () => {
     setModal(true);
-  }
+  };
 
   return (
     <div id="searchbar">
        {!modal && (
          <>
-        <form action="">
           <input type="text" name="" id="search-input" placeholder="Recherchez votre ville" onChange={handleInputChange} autoComplete="off" onClick={handleOpenModal}/>
-        </form>
         </>
        )}
        {modal && (
              <>
-             <form action="">
              <Modal show={modal} onHide={handleCloseModal} id="modal-container" animation={false}>
                <Modal.Header closeButton>
                  <Modal.Title>
@@ -51,7 +48,6 @@ const SearchBar = ({ result, handleChangeSearch, handleSubmitSearch, handleGetEm
                   </Modal.Body>
                   )}
              </Modal>
-             </form>
            </>
        )}
     </div>

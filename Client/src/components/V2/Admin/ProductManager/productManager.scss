@@ -1,18 +1,24 @@
 #product-manager {
-    min-height: 92vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
 }
 
 #manager {
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
+    margin: auto;
 }
 
 #title-manager {
     font-size: 1em;
     margin-bottom: 2em;
+    width: 100%;
+    padding: 0;
 }
 
 #access-buttons {

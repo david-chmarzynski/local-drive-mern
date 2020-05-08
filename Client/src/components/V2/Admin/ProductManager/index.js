@@ -16,10 +16,10 @@ const ProductManager = ({ shopProducts, handleFecthProducts, shopProductsAdded }
     return (
         <div id="product-manager">
             <AdminNavBar />
+            <div id="manager">
             <h1 id="title-manager">
                 Gestion des produits
             </h1>
-            <div id="manager">
             {shopProducts !== null &&
                 shopProducts.map((product) => (
                     <Card style={{ width: '18rem' }}>

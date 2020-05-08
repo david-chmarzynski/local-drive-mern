@@ -25,7 +25,6 @@ const logoutMiddleware = (store) => (next) => (action) => {
               store.dispatch(openSuccessModalAccount());
               store.dispatch(emptyUser());
               store.dispatch(emptyUserRegister());
-              // store.dispatch(emptyshopProducts());
               store.dispatch(emptyShopProducts());
           }
         })

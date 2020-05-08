@@ -1,5 +1,44 @@
 #admin-navbar {
-    i {
-        margin-left: .3rem;
+    width: 5%;
+    min-height: 92vh;
+    // border-right: 1px solid black;
+    box-shadow: 8px 0px 5px -6px rgba(0,0,0,0.75);
+    position: relative;
+
+    & > i {
+        position: absolute;
+        margin-top: 1rem;
+        right: .8rem;
+    }
+
+    &.deployed {
+        width: 15%;
+        animation: deployAdminMenu .5s;
+    }
+
+    &.undeployed {
+        animation: undeployAdminMenu .5s;
+    }
+
+    .accordion {
+        margin-top: 4rem;
+    }
+}
+
+@keyframes deployAdminMenu {
+    0% {
+        width: 5%;
+    }
+    100% {
+        width: 15%;
+    }
+}
+
+@keyframes undeployAdminMenu {
+    0% {
+        width: 15%;
+    }
+    100% {
+        width: 5%;
     }
 }

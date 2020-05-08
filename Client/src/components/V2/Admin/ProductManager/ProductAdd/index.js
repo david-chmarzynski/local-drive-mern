@@ -63,7 +63,7 @@ const ProductAdd = ({
     
 
     return (
-        <>
+        <div id="product">
         <AdminNavBar />
         <div id="product-add">
             <Form onSubmit={handleCompSubmitProduct}>
@@ -103,7 +103,7 @@ const ProductAdd = ({
             <ProductAddFail show={openFailAdd} handleClose={handleCloseFailModalAdd} />
             </>
         </div>
-        </>
+        </div>
     );
 };
 

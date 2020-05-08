@@ -1,5 +1,11 @@
 #product-add {
     width: 60%;
-    margin: auto;
     height: 92vh;
+    margin: auto;
+}
+
+#product {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }

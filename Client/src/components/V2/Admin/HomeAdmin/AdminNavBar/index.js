@@ -16,12 +16,14 @@ const AdminNavBar = () => {
             setOpen(true);
         } else if (open === true) {
             setOpen(false);
+        } else if (open === false) {
+            setOpen(true);
         }
     }
 
     return (
         <div id="admin-navbar" className={classNames({"deployed": open}, {"undeployed": open === false })}>
-            <Icon name="bars" onClick={handleClickMenu} size='large'/>
+            <Icon name="bars" onClick={handleClickMenu} size='large' className={classNames({"deployed": open}, {"undeployed": open === false })}/>
             {open && (
                 <Accordion>
                 <Card>
@@ -42,9 +44,6 @@ const AdminNavBar = () => {
                   </Card.Header>
                   <Accordion.Collapse eventKey="1">
                   <Link to="/admin/produits"><Card.Body>Tous Mes Produits</Card.Body></Link>
-                  </Accordion.Collapse>
-                  <Accordion.Collapse eventKey="1">
-                    <Card.Body>Modifier Produit</Card.Body>
                   </Accordion.Collapse>
                   <Accordion.Collapse eventKey="1">
                   <Link to="/admin/add/product"><Card.Body>Ajouter Produit</Card.Body></Link>

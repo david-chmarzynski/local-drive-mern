@@ -18,7 +18,7 @@ const ProductManager = ({ shopProducts, handleFecthProducts, shopProductsAdded }
             <AdminNavBar />
             <div id="manager">
             <h1 id="title-manager">
-                Gestion des produits
+                Mes produits
             </h1>
             {shopProducts !== null &&
                 shopProducts.map((product) => (

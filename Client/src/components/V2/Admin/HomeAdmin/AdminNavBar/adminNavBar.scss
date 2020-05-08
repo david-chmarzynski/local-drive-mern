@@ -1,15 +1,26 @@
 #admin-navbar {
-    width: 5%;
+    min-width: 5%;
     min-height: 92vh;
     // border-right: 1px solid black;
     box-shadow: 8px 0px 5px -6px rgba(0,0,0,0.75);
     position: relative;
 
     & > i {
-        position: absolute;
+        width: 100%;
+        margin: auto;
         margin-top: 1rem;
-        right: .8rem;
+        cursor: pointer;
+
+        &.deployed {
+            animation: deployRotateIcon .5s forwards;
+        }
+
+        &.undeployed {
+            animation: undeployRotateIcon .5s forwards;
+        }
     }
+
+
 
     &.deployed {
         width: 15%;
@@ -40,5 +51,27 @@
     }
     100% {
         width: 5%;
+    }
+}
+
+@keyframes deployRotateIcon {
+    0% {
+        transform: rotate(0deg);
+        margin-left: 0;
+    }
+    100% {
+        transform: rotate(180deg);
+        margin-left: 30%;
+    }
+}
+
+@keyframes undeployRotateIcon {
+    0% {
+        transform: rotate(0deg);
+        margin-left: 30%;
+    }
+    100% {
+        transform: rotate(-180deg);
+        margin-left: 0;
     }
 }

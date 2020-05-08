@@ -13,7 +13,9 @@ import ProductAdd from 'src/containers/Admin/ProductAdd';
 
 
 // == Composant
-const App = ({ isLogged, currentUser, shopProducts }) => {
+const App = ({ isLogged, currentUser }) => {
+
+  // Privatisation des routes Admin, si user connecté et si user est un shop
   const secureForAdmin = () => {
     if (currentUser && isLogged && currentUser.local.isShop) {
       return (

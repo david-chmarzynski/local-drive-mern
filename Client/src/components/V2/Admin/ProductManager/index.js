@@ -9,6 +9,7 @@ const ProductManager = ({ shopProducts, handleFecthProducts, shopProductsAdded }
     console.log(shopProductsAdded);
     console.log(shopProducts);
     if (shopProducts === null || shopProducts !== shopProductsAdded && shopProductsAdded !== null) {
+        // Récupération des produits en BDD si la liste des produits !== null, si différente de la liste après ajout ( liste d'ajout !null)
         handleFecthProducts();
     }
     console.log(shopProducts);

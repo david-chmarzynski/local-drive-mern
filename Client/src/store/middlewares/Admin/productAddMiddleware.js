@@ -23,6 +23,7 @@ const productAddMiddleware = (store) => (next) => (action) => {
         .then((response) => {
             if (response.data.e === undefined){
                 store.dispatch(openSuccessModalAdd());
+                // Après ajout de produit, appel fetchProducts qui récupère une nouvelle fois la liste des produits en BDD
                 store.dispatch(fetchProducts());
             } else {
                 store.dispatch(openFailModalAdd());

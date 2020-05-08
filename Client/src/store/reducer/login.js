@@ -6,7 +6,6 @@ const initialState = {
     password: null,
     isLogged: null,
     currentUser: null,
-    shopProducts: null,
     openSuccess: false,
     openFail: false,
   };
@@ -80,11 +79,6 @@ const initialState = {
               ...state,
               openFail: false,
             };
-        case FETCH_PRODUCT_DATA:
-            return {
-              ...state,
-              shopProducts: action.products
-            };
       default:
         return state;
     }
@@ -133,16 +127,7 @@ const initialState = {
 
   export const closeFailModal = () => ({
     type: CLOSE_FAIL
-  });
-
-  export const fetchProductData = (products) => ({
-    type: FETCH_PRODUCT_DATA,
-    products
-  });
-
-  export const emptyshopProducts = () => ({
-    type: EMPTY_SHOP_PRODUCTS
-  });
+  }); 
   
   // --- export
   export default reducer;

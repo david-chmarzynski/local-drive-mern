@@ -4,6 +4,7 @@ import {
   SUBMIT_LOGIN, // APPEL AXIOS POUR LA CONNEXION
   isLogged, // RESULTAT DE IS_AUTHENTICATED()
   fetchUserData, // RECUPERATION DES INFOS USER
+  fetchProductData, // RECUPERATION DES PRODUITS DU COMMERCANT
   openSuccessModal, // EN CAS DE SUCCES, PERMET D'AFFICHER LA MODALE
   openFailModal // EN CAS D'ECHEC, PERMET D'AFFICHER LA MODALE
 } from 'src/store/reducer/login';
@@ -11,6 +12,7 @@ import {
 
 
 const loginMiddleware = (store) => (next) => (action) => {
+  console.log(window.location)
   switch (action.type) {
     case SUBMIT_LOGIN:
       axios({
@@ -23,7 +25,7 @@ const loginMiddleware = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(isLogged(response.data.isAuthenticated));
-          store.dispatch(fetchUserData(response.data.currentUser.local));
+          store.dispatch(fetchUserData(response.data.currentUser));  
           store.dispatch(openSuccessModal());
         })
         .catch((error) => {

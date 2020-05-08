@@ -6,7 +6,7 @@ const shopSchema = schema({
     local: {
         email: { type: String, required: true },
         password: { type: String, required: true },
-        isShop: { type: Number, required: false }
+        isShop: { type: Boolean, required: true }
     }
 });
 

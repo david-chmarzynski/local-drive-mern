@@ -1,6 +1,7 @@
 const User = require('../database/models/user.model');
 
 exports.createUser = async (user) => {
+    console.log(user);
     try {
         const hashedPassword = await User.hashPassword(user.password);
         const newUser = new User({

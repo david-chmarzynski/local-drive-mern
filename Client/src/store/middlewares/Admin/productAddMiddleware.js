@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { SUBMIT_ADD_PRODUCT, openSuccessModalAdd, openFailModalAdd  } from 'src/store/reducer/Admin/productAdd';
+import { fetchProducts } from 'src/store/reducer/Admin/productManager';
 
 
 
@@ -16,11 +17,13 @@ const productAddMiddleware = (store) => (next) => (action) => {
           price: store.getState().productAdd.price,
           unit: store.getState().productAdd.unit,
           stock: store.getState().productAdd.stock,
+          shop_id: store.getState().login.currentUser._id
         },
       })
         .then((response) => {
             if (response.data.e === undefined){
                 store.dispatch(openSuccessModalAdd());
+                store.dispatch(fetchProducts());
             } else {
                 store.dispatch(openFailModalAdd());
             }

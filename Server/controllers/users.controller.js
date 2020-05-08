@@ -33,6 +33,7 @@ exports.signin = async (req, res, next) => {
             });
         } else {
             req.login(user, (err) => {
+                console.log(user);
                 res.json({
                     isAuthenticated: req.isAuthenticated(),
                     currentUser: req.user,

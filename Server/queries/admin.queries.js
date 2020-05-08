@@ -25,3 +25,8 @@ exports.findAllProducts = () => {
 exports.findProductByName = (name) => {
     return Product.find({"name": {$regex: name, $options: /[a-zA-Z]/}}).exec();
 };
+
+exports.findProductByShopId = (shopId) => {
+    console.log(shopId);
+    return Product.find({ shop_id: shopId});
+};

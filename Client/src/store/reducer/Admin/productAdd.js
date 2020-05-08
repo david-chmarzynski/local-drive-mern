@@ -10,6 +10,7 @@ const initialState = {
     shop_id: null,
     openSuccessAdd: false,
     openFailAdd: false,
+    products: null,
   };
   
   // --- action types
@@ -25,8 +26,9 @@ const initialState = {
   const CLOSE_FAIL_ADD = "CLOSE_FAIL_ADD";
 
   export const SUBMIT_ADD_PRODUCT = 'SUBMIT_ADD_PRODUCT';
+  export const FETCH_PRODUCTS_ADDED = 'FETCH_PRODUCTS_ADDED';
+  const STORE_PRODUCTS_ADDED = 'STORE_PRODUCTS_ADDED';
 
-  
   // --- Reducer
   const reducer = (state = initialState, action = {}) => {
     switch (action.type) {
@@ -75,6 +77,11 @@ const initialState = {
           ...state,
           openFailAdd: false,
         };
+      case STORE_PRODUCTS_ADDED:
+          return {
+            ...state,
+            products: action.products
+          };
       default:
         return state;
     }
@@ -125,6 +132,15 @@ const initialState = {
   export const closeFailModalAdd = () => ({
     type: CLOSE_FAIL_ADD
   });
+
+  export const fetchProductsAdded = () => ({
+    type: FETCH_PRODUCTS_ADDED
+  });
+
+  export const storeProductsAdded = (products) => ({
+    type: STORE_PRODUCTS_ADDED,
+    products
+  })
   
   // --- export
   export default reducer;

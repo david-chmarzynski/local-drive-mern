@@ -6,6 +6,7 @@ const initialState = {
     password: null,
     isLogged: null,
     currentUser: null,
+    shopProducts: null,
     openSuccess: false,
     openFail: false,
   };
@@ -15,7 +16,9 @@ const initialState = {
   const STORE_PASSWORD = "STORE_PASSWORD";
   const IS_LOGGED = "IS_LOGGED";
   const FECTH_USER_DATA = "FECTH_USER_DATA";
+  const FETCH_PRODUCT_DATA = 'FETCH_PRODUCT_DATA';
   const EMPTY_USER = "EMPTY_USER";
+  const EMPTY_SHOP_PRODUCTS = 'EMPTY_SHOP_PRODUCTS';
   const OPEN_SUCCESS = "OPEN_SUCCESS";
   const OPEN_FAIL = "OPEN_FAIL";
   const CLOSE_SUCCESS = "CLOSE_SUCCESS";
@@ -47,6 +50,11 @@ const initialState = {
                 email: null,
                 password: null,
             };
+        case EMPTY_SHOP_PRODUCTS:
+            return {
+              ...state,
+              shopProducts: null,
+            };
         case FECTH_USER_DATA:
             return {
               ...state,
@@ -71,6 +79,11 @@ const initialState = {
             return {
               ...state,
               openFail: false,
+            };
+        case FETCH_PRODUCT_DATA:
+            return {
+              ...state,
+              shopProducts: action.products
             };
       default:
         return state;
@@ -120,6 +133,15 @@ const initialState = {
 
   export const closeFailModal = () => ({
     type: CLOSE_FAIL
+  });
+
+  export const fetchProductData = (products) => ({
+    type: FETCH_PRODUCT_DATA,
+    products
+  });
+
+  export const emptyshopProducts = () => ({
+    type: EMPTY_SHOP_PRODUCTS
   });
   
   // --- export

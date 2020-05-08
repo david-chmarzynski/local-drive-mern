@@ -9,8 +9,10 @@ import login from './login';
 import account from './account';
 import searchbar from './searchbar';
 import productAdd from './Admin/productAdd';
+import productManager from './Admin/productManager';
 
 const reducer = combineReducers({
+  productManager,
   productAdd,
   searchbar,
   account,

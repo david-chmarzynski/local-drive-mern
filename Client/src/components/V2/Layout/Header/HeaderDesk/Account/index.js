@@ -10,7 +10,6 @@ const Account = ({
     currentUser,
     handleLogout
 }) => {
-    console.log(currentUser.isShop)
     const handleCompLogout = (event) => {
         event.preventDefault();
         handleClose();
@@ -22,7 +21,7 @@ const Account = ({
                 <Modal.Header closeButton>
                 <Modal.Title className="title-transition">
                     {currentUser !== null && (
-                        <p>Bienvenue {currentUser.email}</p>
+                        <p>Bienvenue {currentUser.local.email}</p>
                     )}
                 </Modal.Title>
                 </Modal.Header>
@@ -30,17 +29,17 @@ const Account = ({
                 <Card>
                     <Card.Header>Mon Compte</Card.Header>
                     <ListGroup variant="flush">
-                        {!currentUser.isShop && (
+                        {!currentUser.local.isShop && (
                         <>
                         <ListGroup.Item>Mes informations personnelles</ListGroup.Item>
                         <ListGroup.Item>Mes commandes</ListGroup.Item>
                         <ListGroup.Item>Options</ListGroup.Item>
                         </>
                         )}
-                        {currentUser.isShop && (
+                        {currentUser.local.isShop && (
                         <>
-                        <ListGroup.Item>Mon Magasin</ListGroup.Item>
-                        <Link to="/admin/add/product"><ListGroup.Item>Mes produits</ListGroup.Item></Link>
+                        <Link to="/admin/boutique" onClick={handleClose}><ListGroup.Item>Mon Magasin</ListGroup.Item></Link>
+                        <Link to="/admin/add/product" onClick={handleClose}><ListGroup.Item>Mes produits</ListGroup.Item></Link>
                         <ListGroup.Item>Mes promotions</ListGroup.Item>
                         </>
                         )}

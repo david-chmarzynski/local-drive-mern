@@ -5,6 +5,7 @@ import './productadd.scss';
 import { Form, Button } from 'react-bootstrap';
 import ProductAddSuccess from './productAddSuccess';
 import ProductAddFail from './productAddFail';
+import AdminNavBar from '../../HomeAdmin/AdminNavBar';
 
 const ProductAdd = ({
     handleChangeName,
@@ -18,8 +19,6 @@ const ProductAdd = ({
     handleCloseSuccessModalAdd,
     handleCloseFailModalAdd
 }) => {
-    console.log(openFailAdd);
-    console.log(openSuccessAdd);
 
     const [valide, setValide] = useState(false);
 
@@ -64,6 +63,8 @@ const ProductAdd = ({
     
 
     return (
+        <>
+        <AdminNavBar />
         <div id="product-add">
             <Form onSubmit={handleCompSubmitProduct}>
                 <Form.Group controlId="exampleForm.ControlInput1">
@@ -102,6 +103,7 @@ const ProductAdd = ({
             <ProductAddFail show={openFailAdd} handleClose={handleCloseFailModalAdd} />
             </>
         </div>
+        </>
     );
 };
 

@@ -14,6 +14,7 @@ import LogoutSuccess from 'src/components/V2/Layout/Header/HeaderDesk/LogoutSucc
 import LogoutFail from 'src/components/V2/Layout/Header/HeaderDesk/LogoutFail';
 import RegisterSuccess from 'src/components/V2/Layout/Log/RegisterSuccess';
 import RegisterFail from 'src/components/V2/Layout/Log/RegisterFail';
+import { Link } from 'react-router-dom';
 
 const HeaderDesk = ({
   isLogged, // STATUS EN LIGNE
@@ -45,9 +46,11 @@ const HeaderDesk = ({
 
   return (
     <div id="header-desk">
+      <Link to="/">
       <div id="header-desk-logo">
         <img src="/src/img/g1114.png" alt="Local Drive Logo" />
       </div>
+      </Link>
       <ul id="header-desk-icons">
         <SearchBar />
         <Icon name="map marker alternate" size="big" />

@@ -1,6 +1,7 @@
 const Shop = require('../database/models/shop.model');
 
 exports.createShop = async (shop) => {
+    console.log(shop);
     try {
         const hashedPassword = await Shop.hashPassword(shop.password);
         const newShop = new Shop({

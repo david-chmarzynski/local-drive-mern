@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { STORE_LOGOUT } from 'src/store/reducer/account';
 import { openSuccessModalAccount, openFailModalAccount } from 'src/store/reducer/account';
-import { isLogged, emptyUser } from 'src/store/reducer/login';
+import { isLogged, emptyUser, emptyshopProducts } from 'src/store/reducer/login';
 import { emptyUserRegister } from 'src/store/reducer/register';
 
 
@@ -24,6 +24,7 @@ const logoutMiddleware = (store) => (next) => (action) => {
               store.dispatch(openSuccessModalAccount());
               store.dispatch(emptyUser());
               store.dispatch(emptyUserRegister());
+              store.dispatch(emptyshopProducts());
           }
         })
         .catch((error) => {

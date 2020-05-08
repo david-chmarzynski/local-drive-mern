@@ -8,7 +8,7 @@ const productSchema = schema({
     price: { type: Number, required: true },
     unit: { type: String, required: true },
     stock: { type: Number, required: true },
-    // shop_id: { type: Number, required: false }
+    shop_id: { type: schema.Types.ObjectId, ref: 'shops', required: false }
 });
 
 const Product = mongoose.model('products', productSchema);

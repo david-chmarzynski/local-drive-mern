@@ -1,4 +1,4 @@
-const { createProduct, findAllProducts } = require('../queries/admin.queries');
+const { createProduct, findAllProducts, findProductByShopId } = require('../queries/admin.queries');
 
 exports.addProduct = async (req, res, next) => {
     const body = req.body;
@@ -25,4 +25,20 @@ exports.getAllProducts = async (req, res, next) => {
         })
     }
 
+}
+
+exports.getProductsByShop = async (req, res, next) => {
+    const body = req.body;
+    try {
+        const shopId = body.shop_id;
+        const products = await findProductByShopId(shopId);
+        console.log(products);
+        res.json({
+            result: products
+        });
+    } catch (error) {
+        res.json({
+            error: error
+        });
+    }
 }

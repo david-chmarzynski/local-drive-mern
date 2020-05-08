@@ -19,6 +19,8 @@ exports.findCityById = (id) => {
 };
 
 exports.findCityByName = (name) => {
-    console.log(name);
-    return City.find({"local.name": {$regex: name, $options: /[a-zA-Z]/}}).exec();
+    if (name !== "") {
+        return City.find({"local.name": {$regex: name, $options: /[a-zA-Z]/}}).exec();
+    }
+
 };

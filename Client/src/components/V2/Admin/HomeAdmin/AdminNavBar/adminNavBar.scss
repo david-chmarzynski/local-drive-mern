@@ -1,9 +1,11 @@
 #admin-navbar {
-    min-width: 5%;
+    min-width: 4%;
     min-height: 92vh;
-    // border-right: 1px solid black;
-    box-shadow: 8px 0px 5px -6px rgba(0,0,0,0.75);
+    //border-right: 1px solid black;
+    //box-shadow: 8px 0px 5px -6px rgba(0,0,0,0.75);
     position: relative;
+    // background: linear-gradient(to right, #244958, #244958); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 
     & > i {
         width: 100%;
@@ -17,6 +19,7 @@
 
         &.undeployed {
             animation: undeployRotateIcon .5s forwards;
+            
         }
     }
 
@@ -25,6 +28,7 @@
     &.deployed {
         width: 15%;
         animation: deployAdminMenu .5s;
+        box-shadow: 8px 0px 5px -6px rgba(0,0,0,0.75);
     }
 
     &.undeployed {
@@ -61,14 +65,14 @@
     }
     100% {
         transform: rotate(180deg);
-        margin-left: 30%;
+        margin-left: 35%;
     }
 }
 
 @keyframes undeployRotateIcon {
     0% {
         transform: rotate(0deg);
-        margin-left: 30%;
+        margin-left: 35%;
     }
     100% {
         transform: rotate(-180deg);

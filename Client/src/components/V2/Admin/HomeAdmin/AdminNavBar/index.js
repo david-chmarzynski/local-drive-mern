@@ -43,7 +43,7 @@ const AdminNavBar = () => {
                     </Accordion.Toggle>
                   </Card.Header>
                   <Accordion.Collapse eventKey="1">
-                  <Link to="/admin/produits"><Card.Body>Tous Mes Produits</Card.Body></Link>
+                  <Link to="/admin/produits" onClick={handleClickMenu}><Card.Body>Tous Mes Produits</Card.Body></Link>
                   </Accordion.Collapse>
                   <Accordion.Collapse eventKey="1">
                   <Link to="/admin/add/product"><Card.Body>Ajouter Produit</Card.Body></Link>

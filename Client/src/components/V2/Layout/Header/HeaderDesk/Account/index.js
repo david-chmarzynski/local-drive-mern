@@ -39,7 +39,7 @@ const Account = ({
                         {currentUser.local.isShop && (
                         <>
                         <Link to="/admin/boutique" onClick={handleClose}><ListGroup.Item>Mon Magasin</ListGroup.Item></Link>
-                        <Link to="/admin/add/product" onClick={handleClose}><ListGroup.Item>Mes produits</ListGroup.Item></Link>
+                        <Link to="/admin/produits" onClick={handleClose}><ListGroup.Item>Mes produits</ListGroup.Item></Link>
                         <ListGroup.Item>Mes promotions</ListGroup.Item>
                         </>
                         )}

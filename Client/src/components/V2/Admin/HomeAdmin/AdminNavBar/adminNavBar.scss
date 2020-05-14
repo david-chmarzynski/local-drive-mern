@@ -40,6 +40,10 @@
     }
 }
 
+#admin-navbar > div > div:nth-child(1) > div.card-header > button {
+    text-align: center;
+}
+
 @keyframes deployAdminMenu {
     0% {
         width: 5%;

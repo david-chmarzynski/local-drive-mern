@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 
 import ProductAdd from 'src/components/V2/Admin/ProductManager/ProductAdd';
-import { storeName, storeDescription, storePrice, storeUnit, storeStock, storeSubmitAddProduct, closeSuccessModalAdd, closeFailModalAdd  } from 'src/store/reducer/Admin/productAdd';
+import { storeName, storeDescription, storePrice, storeUnit, storeStock, storeSubmitAddProduct, closeSuccessModalAdd, closeFailModalAdd, storeUploadImage, storeImagePath  } from 'src/store/reducer/Admin/productAdd';
 
 const mapStateToProps = (state) => ({
     openSuccessAdd: state.productAdd.openSuccessAdd,
-    openFailAdd: state.productAdd.openFailAdd
+    openFailAdd: state.productAdd.openFailAdd,
+    file: state.productAdd.image,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -35,12 +36,20 @@ const mapDispatchToProps = (dispatch) => ({
     },
 
     handleCloseSuccessModalAdd: () => {
-        dispatch(closeSuccessModalAdd())
+        dispatch(closeSuccessModalAdd());
     },
 
     handleCloseFailModalAdd: () => {
-        dispatch(closeFailModalAdd())
-    }
+        dispatch(closeFailModalAdd());
+    },
+
+    handleChangeUploadImageComp: (image) => {
+        dispatch(storeUploadImage(image));
+    },
+
+    handleStoreImagePath: (path) => {
+        dispatch(storeImagePath(path));
+    },
 });
 
 const ProductAddContainer = connect(

@@ -24,3 +24,9 @@ exports.findUserById = (id) => {
 exports.findUserByMail = (email) => {
     return User.findOne({ 'local.email': email }).exec();
 };
+
+exports.updatePanier = (id) => {
+    return User.findByIdAndUpdate(
+        {id},
+        {'panier.products': products}).exec
+};

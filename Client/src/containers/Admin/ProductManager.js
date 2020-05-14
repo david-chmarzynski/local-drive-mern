@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import ProductManager from 'src/components/V2/Admin/ProductManager';
-import { fetchProducts } from 'src/store/reducer/Admin/productManager'
+import { fetchProducts, deleteProduct, storeProductDelete } from 'src/store/reducer/Admin/productManager'
 
 const mapStateToProps = (state) => ({
   shopProducts: state.productManager.products,
@@ -11,7 +11,15 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
 
     handleFecthProducts: () => {
-        dispatch(fetchProducts());
+      dispatch(fetchProducts());
+    },
+
+    handleStoreProductToDelete: productId => {
+      dispatch(storeProductDelete(productId))
+    },
+
+    handleDeleteProduct: () => {
+      dispatch(deleteProduct())
     },
 });
 

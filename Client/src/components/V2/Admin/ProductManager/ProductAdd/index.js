@@ -6,6 +6,7 @@ import { Form, Button } from 'react-bootstrap';
 import ProductAddSuccess from './productAddSuccess';
 import ProductAddFail from './productAddFail';
 import AdminNavBar from '../../HomeAdmin/AdminNavBar';
+const axios = require('axios');
 
 const ProductAdd = ({
     handleChangeName,
@@ -17,7 +18,9 @@ const ProductAdd = ({
     openSuccessAdd,
     openFailAdd,
     handleCloseSuccessModalAdd,
-    handleCloseFailModalAdd
+    handleCloseFailModalAdd,
+    handleChangeUploadImageComp,
+    handleStoreImagePath
 }) => {
 
     const [valide, setValide] = useState(false);
@@ -60,13 +63,46 @@ const ProductAdd = ({
         handleSubmitAddProduct();
     };
 
+    let image = null;
+
     
+
+    const submitFile = (e) => {
+        e.preventDefault();
+        const data = new FormData();
+        data.append('product-img', image);
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        };
+        axios.post('http://localhost:3000/admin/upload/image', data, config).then((response) => {
+            console.log(response);
+            handleStoreImagePath(response.data.path);
+        }).catch((e) => {
+            console.log(e);
+        })
+    }
+
+    const handleChangeUploadImage = (event) => {
+        image = event.target.files[0];
+        console.log(image);
+        
+        // handleChangeUploadImageComp(image);
+    };
+    
+
 
     return (
         <div id="product">
         <AdminNavBar />
         <div id="product-add">
+            <form onSubmit={submitFile}>
+                    <input type="file" name="product-img" onChange={handleChangeUploadImage}/>
+                <Button type="submit">Upload</Button>
+            </form>
             <Form onSubmit={handleCompSubmitProduct}>
+
                 <Form.Group controlId="exampleForm.ControlInput1">
                     <Form.Label>Nom du produit :</Form.Label>
                     <Form.Control type="text" placeholder="Nom du produit" onChange={handleCompChangeName} />

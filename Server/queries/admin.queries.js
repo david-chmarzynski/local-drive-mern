@@ -1,13 +1,12 @@
 const Product = require('../database/models/product.model');
 
 exports.createProduct = async (product) => {
-    console.log(product)
     try {
         const newProduct = new Product({
+            image: product.image,
             name: product.name,
             description: product.description,
             price: product.price,
-            image: product.image,
             unit: product.unit,
             stock: product.stock,
             shop_id: product.shop_id,
@@ -27,6 +26,13 @@ exports.findProductByName = (name) => {
 };
 
 exports.findProductByShopId = (shopId) => {
-    console.log(shopId);
-    return Product.find({ shop_id: shopId});
+    return Product.find({ shop_id: shopId}).exec();
 };
+
+exports.findProductById = (productId) => {
+    return Product.findById(productId).exec();
+};
+
+exports.deleteProductById = (productId) => {
+    return Product.findByIdAndDelete(productId).exec();
+}

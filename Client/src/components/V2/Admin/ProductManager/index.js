@@ -1,18 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './productManager.scss';
 
 import AdminNavBar from '../HomeAdmin/AdminNavBar';
 import { Card, Button } from 'react-bootstrap';
 
-const ProductManager = ({ shopProducts, handleFecthProducts, shopProductsAdded }) => {
-    console.log(shopProductsAdded);
-    console.log(shopProducts);
+import ProductDelete from './ProductDelete';
+
+const ProductManager = ({ shopProducts, handleFecthProducts, shopProductsAdded, handleStoreProductToDelete, handleDeleteProduct }) => {
+
+    const [confirm, setConfirm] = useState(false);
+
     if (shopProducts === null || shopProducts !== shopProductsAdded && shopProductsAdded !== null) {
-        // Récupération des produits en BDD si la liste des produits !== null, si différente de la liste après ajout ( liste d'ajout !null)
+        // Récupération des produits en BDD si la liste des produits !== null, si différente de la liste après ajout ( liste d'ajout !null) ==> évite boucle infinie
         handleFecthProducts();
     }
     console.log(shopProducts);
+
+    const handleClickDeleteProduct = (event) => {
+        event.preventDefault();
+        const productId = event.target.value;
+        handleStoreProductToDelete(productId);
+        setConfirm(true);
+    };
+
     return (
         <div id="product-manager">
             <AdminNavBar />
@@ -22,8 +33,8 @@ const ProductManager = ({ shopProducts, handleFecthProducts, shopProductsAdded }
             </h1>
             {shopProducts !== null &&
                 shopProducts.map((product) => (
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src="/src/img/1.jpg" />
+                    <Card style={{ width: '18rem' }} key={product._id}>
+                        <Card.Img variant="top" src={product.image} />
                         <Card.Body>
                         <Card.Title>{product.name}</Card.Title>
                             <Card.Text>
@@ -31,12 +42,15 @@ const ProductManager = ({ shopProducts, handleFecthProducts, shopProductsAdded }
                             </Card.Text>
                         <div id="access-buttons">
                             <Button variant="primary">Modifier</Button>
-                            <Button variant="danger">Supprimer</Button>
+                            <Button variant="danger" onClick={handleClickDeleteProduct} value={product._id}>Supprimer</Button>
                         </div>
                         </Card.Body>
                     </Card>
                 ))
             }
+            {confirm && (
+                <ProductDelete show={confirm} handleClose={setConfirm} handleDeleteProduct={handleDeleteProduct}/>
+            )}
             
             </div>
         </div>

@@ -5,6 +5,7 @@ import { Icon } from 'semantic-ui-react';
 import Login from 'src/containers/Login';
 import SearchBar from 'src/containers/SearchBar';
 import Account from 'src/containers/Account';
+import Panier from 'src/components/V2/Layout/Panier';
 
 import './headerdesk.scss';
 
@@ -44,6 +45,10 @@ const HeaderDesk = ({
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [panier, setPanier] = useState(false);
+  const handleOpenPanier = () => setPanier(true);
+  const handleClosePanier = () => setPanier(false);
+
   return (
     <div id="header-desk">
       <Link to="/">
@@ -80,7 +85,10 @@ const HeaderDesk = ({
         {openFailRegister && (
           <RegisterFail show={openFailRegister} handleClose={handleCloseFailModalRegister} />
         )}
-        <Icon name="cart" size="big" />
+        <Icon name="cart" size="big" onClick={handleOpenPanier} />
+        {panier && (
+          <Panier show={panier} handleClose={handleClosePanier} />
+        )}
       </ul>
     </div>
   );

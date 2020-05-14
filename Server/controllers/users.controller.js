@@ -1,4 +1,4 @@
-const { createUser, findUserByMail } = require('../queries/users.queries');
+const { createUser, findUserByMail, findUserById, updatePanier } = require('../queries/users.queries');
 const passport = require('passport');
 const { findShopByMail } = require('../queries/shops.queries');
 
@@ -49,4 +49,23 @@ exports.logout = async (req, res, next) => {
     res.json({
         isAuthenticated: req.isAuthenticated()
     })
+}
+
+exports.updatePanier = async (req, res, next) => {
+    const body = req.body;
+    try {
+        const currentUser = await findUserById(body.user_id);
+        if (currentUser) {
+            updatePanier(body.products);
+            res.json({
+                message: "Panier mis à jour"
+            })
+        } else {
+            res.json({
+                message: "Vous n'êtes pas connecté" // Temporaire, prochainement : ajout au panier possible, demande de connexion à la validation du panier ?
+            })
+        }
+    } catch (e) {
+        next(e);
+    }
 }

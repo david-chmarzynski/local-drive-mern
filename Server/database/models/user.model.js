@@ -7,6 +7,12 @@ const userSchema = schema({
         email: { type: String, required: true },
         password: { type: String, required: true },
         isShop: { type: Boolean, required: true }
+    },
+    panier: {
+        products: [
+            { product: { type: Object, required: false }}
+        ],
+        isValidate: { type: Boolean, default: false }
     }
 });
 

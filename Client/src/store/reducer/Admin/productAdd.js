@@ -11,6 +11,8 @@ const initialState = {
     openSuccessAdd: false,
     openFailAdd: false,
     products: null,
+    image: null,
+    path: null,
   };
   
   // --- action types
@@ -19,6 +21,7 @@ const initialState = {
   const CHANGE_PRICE = 'CHANGE_PRICE';
   const CHANGE_UNIT = 'CHANGE_UNIT';
   const CHANGE_STOCK = 'CHANGE_STOCK';
+  const STORE_UPLOAD_IMAGE = 'STORE_UPLOAD_IMAGE';
 
   const OPEN_SUCCESS_ADD = "OPEN_SUCCESS_ADD";
   const OPEN_FAIL_ADD = "OPEN_FAIL_ADD";
@@ -28,6 +31,7 @@ const initialState = {
   export const SUBMIT_ADD_PRODUCT = 'SUBMIT_ADD_PRODUCT';
   export const FETCH_PRODUCTS_ADDED = 'FETCH_PRODUCTS_ADDED';
   const STORE_PRODUCTS_ADDED = 'STORE_PRODUCTS_ADDED';
+  const STORE_IMAGE_PATH = 'STORE_IMAGE_PATH';
 
   // --- Reducer
   const reducer = (state = initialState, action = {}) => {
@@ -82,6 +86,16 @@ const initialState = {
             ...state,
             products: action.products
           };
+      case STORE_UPLOAD_IMAGE:
+          return {
+            ...state,
+            image: action.image
+          };
+      case STORE_IMAGE_PATH:
+        return {
+          ...state,
+          path: action.path
+        };
       default:
         return state;
     }
@@ -140,7 +154,17 @@ const initialState = {
   export const storeProductsAdded = (products) => ({
     type: STORE_PRODUCTS_ADDED,
     products
-  })
+  });
+
+  export const storeUploadImage = (image) => ({
+    type: STORE_UPLOAD_IMAGE,
+    image
+  });
+
+  export const storeImagePath = (path) => ({
+    type: STORE_IMAGE_PATH,
+    path
+  });
   
   // --- export
   export default reducer;

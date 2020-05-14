@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import { SUBMIT_ADD_PRODUCT, openSuccessModalAdd, openFailModalAdd  } from 'src/store/reducer/Admin/productAdd';
-import { fetchProducts } from 'src/store/reducer/Admin/productManager';
+import { storeProducts, fetchProducts } from 'src/store/reducer/Admin/productManager';
 
 
 
@@ -12,6 +12,7 @@ const productAddMiddleware = (store) => (next) => (action) => {
         method: 'post',
         url: 'http://localhost:3000/admin/add/product',
         data: {
+          image: store.getState().productAdd.path,
           name: store.getState().productAdd.name,
           description: store.getState().productAdd.description,
           price: store.getState().productAdd.price,
@@ -25,6 +26,7 @@ const productAddMiddleware = (store) => (next) => (action) => {
                 store.dispatch(openSuccessModalAdd());
                 // Après ajout de produit, appel fetchProducts qui récupère une nouvelle fois la liste des produits en BDD
                 store.dispatch(fetchProducts());
+                store.dispatch(storeProducts(response.data.result));
             } else {
                 store.dispatch(openFailModalAdd());
             }

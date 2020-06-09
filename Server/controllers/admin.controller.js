@@ -1,4 +1,4 @@
-const { createProduct, findAllProducts, findProductByShopId, findProductById, deleteProductById } = require('../queries/admin.queries');
+const { createProduct, findAllProducts, findProductByShopId, findProductById, deleteProductById, updateProductById } = require('../queries/admin.queries');
 const path = require('path');
 const multer = require('multer');
 const upload = multer({ storage: multer.diskStorage({
@@ -96,3 +96,17 @@ exports.deleteProduct = async (req, res, next) => {
     }
 }
 
+exports.updateProduct = async (req, res, next) => {
+    const body = req.body;
+    try {
+        const productId = body.shop_id;
+        await updateProductById(productId, body);
+        const updatedProduct = await findProductById(productId);
+        res.json({
+            message: updatedProduct
+        })
+    } catch (e) {
+        console.log(e);
+        next(e);
+    }
+}

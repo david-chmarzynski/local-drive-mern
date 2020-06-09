@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const errorHandler = require('errorhandler');
 const cors = require('cors');
 const index = require('./routes');
+const path = require('path');
 require('./database');
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(morgan('short'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.static(path.join(__dirname, "../client-build/dist")))
 app.use(index);
 
 if (process.env.NODE_ENV === 'development') {

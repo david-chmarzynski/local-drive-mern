@@ -35,4 +35,8 @@ exports.findProductById = (productId) => {
 
 exports.deleteProductById = (productId) => {
     return Product.findByIdAndDelete(productId).exec();
-}
+};
+
+exports.updateProductById = (productId, product) => {
+    return Product.findByIdAndUpdate(productId, {$set: product}, {runValidators: true});
+};

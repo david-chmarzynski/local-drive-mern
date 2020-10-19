@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import ProductManager from 'src/components/V2/Admin/ProductManager';
+import ProductManager from 'src/components/Admin/ProductManager';
 import { fetchProducts, deleteProduct, storeProductDelete } from 'src/store/reducer/Admin/productManager'
 
 const mapStateToProps = (state) => ({

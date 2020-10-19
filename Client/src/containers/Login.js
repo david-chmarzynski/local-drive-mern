@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Login from 'src/components/V2/Layout/Log/Login';
+import Login from 'src/components/Layout/Log/Login';
 
 import { storeEmail, storePassword, storeSubmitLogin, closeSuccessModal, closeFailModal } from 'src/store/reducer/login';
 

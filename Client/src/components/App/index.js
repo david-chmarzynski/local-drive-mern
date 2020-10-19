@@ -2,18 +2,51 @@
 import React from 'react';
 // == Import : local
 import './app.scss';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
+import Header from 'src/containers/HeaderDesk';
+import Home from 'src/components/Layout/Home';
+import Footer from 'src/components/Layout/Footer';
+import HomeAdmin from 'src/components/Admin/HomeAdmin';
+import ProductManager from 'src/containers/Admin/ProductManager';
+import ProductAdd from 'src/containers/Admin/ProductAdd';
+import Error404 from 'src/components/Layout/Error404';
 
-import Header from 'src/containers/Header';
-import Footer from 'src/components/Home/Footer';
-import Main from 'src/containers/Main';
 
 // == Composant
-const App = () => {
+const App = ({ isLogged, currentUser }) => {
+
+  // Privatisation des routes Admin, si user connecté et si user est un shop
+  const secureForAdmin = () => {
+    if (currentUser && isLogged && currentUser.local.isShop) {
+      return (
+        <>
+        <Route exact path="/admin" component={HomeAdmin} />
+        <Route exact path="/admin/informations"/>
+        <Route exact path="/admin/produits" component={ProductManager}/>
+        <Route exact path="/admin/boutique" />
+        <Route exact path="/admin/add/product" component={ProductAdd} />
+        </>
+      )
+    } else {
+      return (
+        <>
+        <Route exact path="/admin" component={Error404} />
+        <Route exact path="/admin/informations"/>
+        <Route exact path="/admin/produits" component={Error404}/>
+        <Route exact path="/admin/boutique" />
+        <Route exact path="/admin/add/product" component={Error404} />
+        </>
+      )
+    }
+  }
   return (
     <div id="app">
       <Header />
-      <Main />
+      <Switch>
+      <Route exact path="/" component={Home} />
+      {secureForAdmin()}
+      </Switch>
       <Footer />
     </div>
   );

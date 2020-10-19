@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Register from 'src/components/V2/Layout/Log/Register';
+import Register from 'src/components/Layout/Log/Register';
 
 import { storeEmail, storePassword, storeCPassword, storeIsShop, storeSubmitNewUser, storeSubmitNewShop } from 'src/store/reducer/register';
 

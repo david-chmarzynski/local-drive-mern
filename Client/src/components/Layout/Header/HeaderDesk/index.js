@@ -5,16 +5,16 @@ import { Icon } from 'semantic-ui-react';
 import Login from 'src/containers/Login';
 import SearchBar from 'src/containers/SearchBar';
 import Account from 'src/containers/Account';
-import Panier from 'src/components/V2/Layout/Panier';
+import Panier from 'src/components/Layout/Panier';
 
 import './headerdesk.scss';
 
-import LoginSuccess from 'src/components/V2/Layout/Log/LoginSuccess';
-import LoginFail from 'src/components/V2/Layout/Log/LoginFail';
-import LogoutSuccess from 'src/components/V2/Layout/Header/HeaderDesk/LogoutSuccess';
-import LogoutFail from 'src/components/V2/Layout/Header/HeaderDesk/LogoutFail';
-import RegisterSuccess from 'src/components/V2/Layout/Log/RegisterSuccess';
-import RegisterFail from 'src/components/V2/Layout/Log/RegisterFail';
+import LoginSuccess from 'src/components/Layout/Log/LoginSuccess';
+import LoginFail from 'src/components/Layout/Log/LoginFail';
+import LogoutSuccess from 'src/components/Layout/Header/HeaderDesk/LogoutSuccess';
+import LogoutFail from 'src/components/Layout/Header/HeaderDesk/LogoutFail';
+import RegisterSuccess from 'src/components/Layout/Log/RegisterSuccess';
+import RegisterFail from 'src/components/Layout/Log/RegisterFail';
 import { Link } from 'react-router-dom';
 
 const HeaderDesk = ({

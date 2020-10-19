@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import SearchBar from 'src/components/V2/SearchBar';
+import SearchBar from 'src/components/SearchBar';
 
 import { storeChangeSearch, storeSubmitSearch, storeGetEmptyResult } from 'src/store/reducer/searchbar';
 

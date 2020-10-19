@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Account from 'src/components/V2/Layout/Header/HeaderDesk/Account';
+import Account from 'src/components/Layout/Header/HeaderDesk/Account';
 import { storeLogout } from 'src/store/reducer/account';
 
 const mapStateToProps = (state) => ({

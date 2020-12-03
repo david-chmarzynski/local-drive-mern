@@ -28,5 +28,5 @@ exports.findUserByMail = (email) => {
 exports.updatePanier = (id) => {
     return User.findByIdAndUpdate(
         {id},
-        {'panier.products': products}).exec
+        {'panier.products': products}).exec();
 };

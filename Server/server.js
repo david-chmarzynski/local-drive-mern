@@ -17,7 +17,8 @@ app.use(morgan('short'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-app.use(express.static(path.join(__dirname, "../client-build/dist")))
+app.use(express.static(path.join(__dirname, "../dist")));
+// app.use(express.static(path.join(__dirname, "../Client/src/img")))
 app.use(index);
 
 if (process.env.NODE_ENV === 'development') {
@@ -33,3 +34,4 @@ if (process.env.NODE_ENV === 'development') {
   }
 
 app.listen(port);
+console.log("Server Running on", port)

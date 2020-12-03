@@ -9,9 +9,11 @@ router.use('/users', users);
 router.use('/shops', shops);
 router.use('/cities', cities);
 router.use('/admin', admin);
-// router.use('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../../dist/index.html'))
-// });
+router.use('/', (req, res) => {
+    // res.sendFile(path.join(__dirname, '../../dist/index.html'))
+    console.log(req.shop);
+    res.render("index");
+});
 
 
 module.exports = router;

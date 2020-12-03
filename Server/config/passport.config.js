@@ -2,7 +2,7 @@ const { app } = require('../server');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const { findUserById, findUserByMail } = require('../queries/users.queries');
-const { findShopByMail } = require('../queries/shops.queries');
+const { findShopByMail, findShopById } = require('../queries/shops.queries');
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -14,9 +14,17 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser( async (id, done) => {
     try {
         const user = await findUserById(id);
-        done(null, user);
+        const shop = await findShopById(id);
+        console.log(user, shop, 'iiiiiicc')
+        if(!user) {
+          console.log("C'est bien ici", shop)
+          done(null, shop)
+        } else {
+          //console.log(user)
+          done(null, user);
+        }
     } catch (e) {
-       done(e); 
+       done(e, null); 
     }
 });
 

@@ -18,7 +18,7 @@ const App = ({ isLogged, currentUser }) => {
 
   // Privatisation des routes Admin, si user connecté et si user est un shop
   const secureForAdmin = () => {
-    if (currentUser && isLogged && currentUser.local.isShop) {
+    if (true) {
       return (
         <>
         <Route exact path="/admin" component={HomeAdmin} />
